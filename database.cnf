@@ -1,0 +1,7 @@
+[client]
+database = db
+host = localhost
+user = user
+password = password
+port = 3306
+default-character-set = utf8
