@@ -19,3 +19,10 @@ class Sensor(models.Model):
     temperatureSensor = models.FloatField()
     moistureSensor = models.FloatField()
     luxSensor = models.FloatField()
+
+
+class Actuator(models.Model):
+
+    temperatureActuator = models.BooleanField()
+    moistureActuator = models.BooleanField()
+    luxActuator = models.BooleanField()

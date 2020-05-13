@@ -133,6 +133,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "staticfiles"),
 ]
 
+
 #CHANNELS config
 CHANNEL_LAYERS = {
     "default": {
