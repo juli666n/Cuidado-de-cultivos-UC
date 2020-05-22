@@ -10,8 +10,6 @@ pymysql = "*"
 mysqlclient = "*"
 django = "==2"
 pathlib = "*"
-asgi-redis = "*"
-3-2-7 = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"
