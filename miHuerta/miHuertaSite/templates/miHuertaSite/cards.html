@@ -1,0 +1,47 @@
+{% load static %}
+{% load i18n %}
+{% language 'es' %}
+<div class="col-xl-4 col-md-6">
+    <div class="card bg-primary text-white mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Temperatura</h5>
+            {% for sensor in sensors %}
+            <p id="var1" class="text-white">{{sensor.temperatureSensor}}</p>
+            {% endfor %}
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-white stretched-link" href="#">View Details</a>
+            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+
+        </div>
+    </div>
+</div>
+<div class="col-xl-4 col-md-6">
+    <div class="card bg-primary text-white mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Humedad</h5>
+            {% for sensor in sensors %}
+            <p id="var2" class="text-white">{{sensor.moistureSensor}}</p>
+            {% endfor %}
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-white stretched-link" href="#">View Details</a>
+            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+</div>
+<div class="col-xl-4 col-md-6">
+    <div class="card bg-primary text-white mb-4">
+        <div class="card-body">
+            <h5 class="card-title">Intensidad luminica</h5>
+            {% for sensor in sensors %}
+            <p id="var3" class="text-white">{{sensor.luxSensor}}</p>
+            {% endfor %}
+        </div>
+        <div class="card-footer d-flex align-items-center justify-content-between">
+            <a class="small text-white stretched-link" href="#">View Details</a>
+            <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        </div>
+    </div>
+</div>
+{% endlanguage %}

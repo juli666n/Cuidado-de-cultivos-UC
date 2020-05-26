@@ -99,50 +99,9 @@
             </form>
             {% endblock %}
         </ol>
-        <div class="row">
-            <div class="col-xl-4 col-md-6">
-                <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Temperatura</h5>
-                        {% for sensor in sensors %}
-                        <p class="text-white">{{sensor.temperatureSensor}}</p>
-                        {% endfor %}
-                    </div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+        <div id="cardsContent" class="row">
+            {% for item in items %}{% include 'cards.html' %}{% endfor %}
 
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Humedad</h5>
-                        {% for sensor in sensors %}
-                        <p class="text-white">{{sensor.moistureSensor}}</p>
-                        {% endfor %}
-                    </div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6">
-                <div class="card bg-primary text-white mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Intensidad luminica</h5>
-                        {% for sensor in sensors %}
-                        <p class="text-white">{{sensor.luxSensor}}</p>
-                        {% endfor %}
-                    </div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="#">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </main>
@@ -159,10 +118,23 @@
 <script src="vendor/chart.js/Chart.min.js"></script>
 <script src="vendor/datatables/jquery.dataTables.js"></script>
 <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 
 <!-- Custom scripts for all pages-->
 <script src="js/sb-admin.min.js"></script>
-
-</html>
-
+<script>
+    var append_increment = 0;
+    setInterval(function() {
+        $.ajax({
+            url: '/updateCards',
+            type: 'get'
+        })
+            .done(function(response) {
+                $("#cardsContent").empty();
+                $('#cardsContent').append(response);
+                append_increment += 10;
+            });
+    }, 1000)
+</script>
 {% endlanguage %}

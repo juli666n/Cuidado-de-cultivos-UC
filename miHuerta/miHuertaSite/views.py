@@ -18,4 +18,15 @@ def index(request):
         'sensors': sensors,
 
     }
-    return render(request, 'miHuertaSite/index.html', context)
+    return render(request, 'miHuertaSite/index.html',context)
+
+
+def update_cards(request):
+    plants = Plant.objects.all()
+    sensors = Sensor.objects.all()
+    context = {
+        'plants': plants,
+        'sensors': sensors,
+
+    }
+    return render(request, 'miHuertaSite/cards.html', context)
