@@ -8,7 +8,7 @@ verify_ssl = true
 [packages]
 pymysql = "*"
 mysqlclient = "*"
-django = "==2"
+django = "==2.2.24"
 pathlib = "*"
 
 [requires]
